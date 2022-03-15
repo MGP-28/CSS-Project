@@ -87,10 +87,10 @@ select {
     --verdeEscuroTransp: #688557a6;
 }
 body{
-    display: grid;
-    grid-template-rows: 120px auto 120px;
+  display: grid;
+  grid-template-rows: 120px auto auto;
 }
-/*HEADER*/
+/*#region HEADER*/
 header{
   grid-row: 1;
   background-color: var(--verdeEscuro);
@@ -134,13 +134,14 @@ header{
   transform: translateY(1px);
   transition: all ease 300ms;
 }
+/*#endregion HEADER*/
 #main{
-  grid-row-start: 2;
-  grid-row-end: span 8;
+  grid-row: 2;
   display: grid;
   grid-template-rows: repeat(4,auto);
 }
 .hide{
+  display: none;
   opacity: 0%;
 }
 /*#region index*/
@@ -157,19 +158,24 @@ header{
 }
 #heroText{
   grid-row: 1;
-  padding: 100px 20vw 0 8vw;
+  padding: 60px calc(20vw - 40px) 0 calc(8vw - 40px);
   margin: 0;
   color: white;
-  text-shadow: black 2px 1px;
+  text-shadow: black 1px 1px;
 }
-#heroText>h5{
+#heroTextBox{
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+#heroText h5{
   padding: 0px;
   margin: 0px;
   margin-bottom: 50px;
   font-size: 2rem;
   color: var(--beje);
 }
-#heroText>p{
+#heroText p{
   text-indent: 20px;
   text-align: justify;
 }
@@ -189,7 +195,7 @@ header{
   justify-content: center;
   align-items: center;
   height: 50%;
-  width: 20%;
+  width: 23%;
   border-radius: 10px;
   background-color: var(--verdeEscuroTransp);
 }
@@ -225,6 +231,7 @@ header{
   text-shadow: black 2px 1px;
 }
 .cardAnimal>.hide{
+  display: block;
   padding: 40px;
   border-radius: 10px;
 }
@@ -242,11 +249,11 @@ header{
   background-image: url(/img/goat.jpg);
 }
 .cardAnimal:hover>.hide{
+  display: block;
   background-color: rgba(0, 0, 0, 0.55);
   opacity: 100%;
   transition: all 0.5s linear;
 }
-/*medium screen*/
 @media only screen and (max-width: 1280px) {
   #cards{
     flex-flow: column;
@@ -268,6 +275,40 @@ header{
   .cardAnimal{
     width: 100%;
   }
+
+}
+@media only screen and (max-width: 500px) {
+  body{
+    grid-template-rows: 70px auto auto;
+  }
+  #navbar-logo{
+    padding: 5px 20px;
+  }
+  #navbar-logo>img{
+    height: 50px;
+  }
+  #navbar-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-right: 40px;
+  }
+  #heroBtn{
+    justify-content: center; 
+    padding: 0;
+  }
+  #heroBtn>div{
+    width: 85%;
+  }
+  #cards{
+    flex-flow: column;
+    padding: 10px;
+    gap: 10px;
+  }
+  .cardAnimal{
+    width: auto;
+  }
 }
 /*#endregion index*/
 /*#region about*/
@@ -277,8 +318,11 @@ header{
   grid-template-columns: 60% auto;
   background-color: var(--beje);
 }
+
+/*#region formCSS*/
 #form{
   grid-row: 1; grid-column: 1;
+  width: 100%;
   padding: 50px 0;
   background-image: url(/img/about.jpg);
   background-repeat: no-repeat;
@@ -290,7 +334,12 @@ header{
   justify-content: center;
   align-items: center;
 }
-/*#region formCSS*/
+#form>div{
+  width: 100%;
+}
+.input-container{
+  padding: 0 20px;
+}
 #form h4{
   color: var(--beje);
   text-shadow: black 1px 1px;
@@ -304,14 +353,13 @@ input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid
 }
 .styled-input {
   float: left;
-  width: 293px;
   margin: 1rem 0;
   position: relative;
   border-radius: 4px;
 }
 @media only screen and (max-width: 768px){
   .styled-input {
-      width:100%;
+    width:100%;
   }
 }
 .styled-input label {
@@ -325,8 +373,7 @@ input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid
   pointer-events: none;
 }
 .styled-input.wide { 
-  width: 650px;
-  max-width: 100%;
+  width: 100%;
 }
 input,
 textarea {
@@ -351,18 +398,22 @@ textarea {
   min-height: 15em;
 }
 .input-container {
+  width: 100%;
+  margin: 20px auto 25px auto;
+}
+/* .input-container {
   width: 650px;
   max-width: 100%;
   margin: 20px auto 25px auto;
-}
+} */
+
 .submit-btn {
   float: right;
   padding: 7px 35px;
   border-radius: 60px;
   display: inline-block;
   background-color: var(--beje);
-  color: var(--verdeEscuro);
-  text-shadow: black 1px 1px;
+  color: black;
   font-size: 18px;
   cursor: pointer;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.06),
@@ -466,34 +517,48 @@ font-style: normal;
     grid-column: 1;
   }
 }
-@media only screen and (max-width: 860px) {
+@media only screen and (max-width: 950px) {
   #navbar-logo>h2{
     display: none;
   }
 }
+@media only screen and (max-width: 600px) {
+  #reviewCard{
+    flex-flow: column;
+    align-content: center;
+  }
+  #reviewCard>img{
+    align-self: center;
+    margin: 0 0 15px 0;
+  }
+  #reviewCard>div{
+    align-items: center;
+  }
+}
 /*#endregion about*/
 /*#region FOOTER*/
-footer{
-  grid-row: 10;
-}
-.footer-distributed {
+.footer-distributed{
+  grid-row: 3;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto auto;
   background-color: var(--verdeEscuro);
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
   width: 100%;
-  text-align: left;
   padding: 40px 50px;
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
 }
-.footer-distributed .footer-left p {
+.footer-distributed p {
   color: white;
   text-shadow: black 1px 1px;
   font-size: 14px;
   margin: 0;
 }
 /* Footer links */
+.footer-distributed .footer-left{
+  grid-row: 1;
+  grid-column: 1;
+}
 .footer-distributed p.footer-links {
   font-size: 18px;
   font-weight: bold;
@@ -515,11 +580,15 @@ footer{
   color: #fff;
   display: inline-block;
   padding-right: 5px;
+  margin: 0 5px;
 }
 .footer-distributed .footer-links .link-1:before {
   content: none;
 }
 .footer-distributed .footer-right {
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: right;
   display: flex;
   gap: 20px;
 }
@@ -543,5 +612,30 @@ footer{
 }
 .footer-distributed p.footer-links a:hover{
   text-decoration:underline;
+}
+#trademark{
+  grid-row: 2 / span 2;
+  grid-column: 1 / span 2;
+}
+/*small screen*/
+@media only screen and (max-width: 500px) {
+  .footer-distributed{
+    justify-items: center;
+    row-gap: 20px;
+    padding: 20px;
+  }
+  .footer-distributed .footer-left{
+    grid-row: 1;
+    grid-column: 1 / span 2;
+  }
+  .footer-distributed .footer-right{
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    justify-self: center;
+  }
+  .footer-distributed #trademark{
+    grid-row: 3;
+    grid-column: 1 / span 2;
+  }
 }
 /*#endregion FOOTER*/
