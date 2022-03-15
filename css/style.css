@@ -90,6 +90,10 @@ body{
   display: grid;
   grid-template-rows: 120px auto auto;
 }
+.hide{
+  display: none;
+  opacity: 0%;
+}
 /*#region HEADER*/
 header{
   grid-row: 1;
@@ -140,402 +144,7 @@ header{
   display: grid;
   grid-template-rows: repeat(4,auto);
 }
-.hide{
-  display: none;
-  opacity: 0%;
-}
-/*#region index*/
-#hero{
-  grid-row-start: 1;
-  grid-row-end: span 3;
-  background-image: url(/img/hero.jpg);
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size:cover;
-  background-position: center center;
-  display: grid;
-  grid-template-rows: auto auto;
-}
-#heroText{
-  grid-row: 1;
-  padding: 60px calc(20vw - 40px) 0 calc(8vw - 40px);
-  margin: 0;
-  color: white;
-  text-shadow: black 1px 1px;
-}
-#heroTextBox{
-  padding: 40px;
-  background-color: rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}
-#heroText h5{
-  padding: 0px;
-  margin: 0px;
-  margin-bottom: 50px;
-  font-size: 2rem;
-  color: var(--beje);
-}
-#heroText p{
-  text-indent: 20px;
-  text-align: justify;
-}
-#heroBtn{
-  grid-row: 2;
-  display: flex; 
-  justify-content: flex-end; 
-  align-items: center;
-  height: 12vh;
-  padding-right: 8vw;
-  font-weight: 800;
-  min-height: 60px;
-  margin: 5vw 0;
-}
-#heroBtn>div{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50%;
-  width: 23%;
-  border-radius: 10px;
-  background-color: var(--verdeEscuroTransp);
-}
-#heroBtn>div>a{
-  display: block;
-  text-align: center;
-  line-height: 100%;
-  text-decoration: none; color: var(--beje); text-shadow: black 1px 1px;
-}
-#heroBtn>div:hover{
-  background-color: var(--verdeEscuro);
-  transition: all linear 0.5s;
-}
-/*cards*/
-#cards{
-  grid-row: 4;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 40px 100px;
-  background-color: var(--beje);
-  gap: 2vw;
-}
-.cardAnimal{
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-size: cover;
-  background-color: var(--beje);
-  border-radius: 10px;
-  color: white;
-  text-shadow: black 2px 1px;
-}
-.cardAnimal>.hide{
-  display: block;
-  padding: 40px;
-  border-radius: 10px;
-}
-.hide>h1{
-  margin-bottom: 10px;
-  color: var(--beje);
-}
-#cardA{
-  background-image: url(/img/cow.jpg);
-}
-#cardB{
-  background-image: url(/img/goose.jpg);
-}
-#cardC{
-  background-image: url(/img/goat.jpg);
-}
-.cardAnimal:hover>.hide{
-  display: block;
-  background-color: rgba(0, 0, 0, 0.55);
-  opacity: 100%;
-  transition: all 0.5s linear;
-}
-@media only screen and (max-width: 1280px) {
-  #cards{
-    flex-flow: column;
-    padding: 40px 10vw;
-  }
-  .cardAnimal{
-    width: 60%;
-  }
-  #heroText{
-    padding: 8vw 8vw 0 8vw;
-  }
-}
-@media only screen and (max-width: 850px) {
-  #cards{
-    flex-flow: column;
-    padding: 40px;
-    gap: 40px;
-  }
-  .cardAnimal{
-    width: 100%;
-  }
 
-}
-@media only screen and (max-width: 500px) {
-  body{
-    grid-template-rows: 70px auto auto;
-  }
-  #navbar-logo{
-    padding: 5px 20px;
-  }
-  #navbar-logo>img{
-    height: 50px;
-  }
-  #navbar-links{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding-right: 40px;
-  }
-  #heroBtn{
-    justify-content: center; 
-    padding: 0;
-  }
-  #heroBtn>div{
-    width: 85%;
-  }
-  #cards{
-    flex-flow: column;
-    padding: 10px;
-    gap: 10px;
-  }
-  .cardAnimal{
-    width: auto;
-  }
-}
-/*#endregion index*/
-/*#region about*/
-#about{
-  display: grid;
-  grid-template-rows: auto;
-  grid-template-columns: 60% auto;
-  background-color: var(--beje);
-}
-
-/*#region formCSS*/
-#form{
-  grid-row: 1; grid-column: 1;
-  width: 100%;
-  padding: 50px 0;
-  background-image: url(/img/about.jpg);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  border-right: var(--beje) ;
-  border-radius: 0 10px 10px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#form>div{
-  width: 100%;
-}
-.input-container{
-  padding: 0 20px;
-}
-#form h4{
-  color: var(--beje);
-  text-shadow: black 1px 1px;
-}
-input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
-  font-size: 0.75em;
-  color: #999;
-  top: -5px;
-  -webkit-transition: all 0.225s ease;
-  transition: all 0.225s ease;
-}
-.styled-input {
-  float: left;
-  margin: 1rem 0;
-  position: relative;
-  border-radius: 4px;
-}
-@media only screen and (max-width: 768px){
-  .styled-input {
-    width:100%;
-  }
-}
-.styled-input label {
-  color: #999;
-  padding: 0.9rem 30px 1rem 30px;
-  position: absolute;
-  top: 10px;
-  left: 0;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-  pointer-events: none;
-}
-.styled-input.wide { 
-  width: 100%;
-}
-input,
-textarea {
-  padding: 30px;
-  border: 0;
-  width: 100%;
-  font-size: 1rem;
-  background-color: #2d2d2d;
-  color: white;
-  border-radius: 4px;
-}
-input:focus,
-textarea:focus { outline: 0; }
-input:focus ~ span,
-textarea:focus ~ span {
-  width: 100%;
-  -webkit-transition: all 0.075s ease;
-  transition: all 0.075s ease;
-}
-textarea {
-  width: 100%;
-  min-height: 15em;
-}
-.input-container {
-  width: 100%;
-  margin: 20px auto 25px auto;
-}
-/* .input-container {
-  width: 650px;
-  max-width: 100%;
-  margin: 20px auto 25px auto;
-} */
-
-.submit-btn {
-  float: right;
-  padding: 7px 35px;
-  border-radius: 60px;
-  display: inline-block;
-  background-color: var(--beje);
-  color: black;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.06),
-            0 2px 10px 0 rgba(0,0,0,0.07);
-  -webkit-transition: all 300ms ease;
-  transition: all 300ms ease;
-}
-.submit-btn:hover {
-  transform: translateY(1px);
-  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10),
-            0 1px 1px 0 rgba(0,0,0,0.09);
-}
-@media (max-width: 768px) {
-  .submit-btn {
-      width:100%;
-      float: none;
-      text-align:center;
-  }
-}
-input[type=checkbox] + label {
-color: #ccc;
-font-style: italic;
-} 
-input[type=checkbox]:checked + label {
-color: #f00;
-font-style: normal;
-}
-/*#endregion formCSS*/
-#lateral{
-  grid-row: 1; grid-column: 2;
-  display: grid;
-  grid-template-rows: 100px auto;
-  align-content: center;
-  align-items: center;
-  padding: 0 50px 50px;
-}
-#reviewTitle{
-  grid-row: 1;
-  justify-self: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%; width: 100%;
-  padding: 25px 0;
-}
-#reviewTitle>h1{
-  font-size: 1.7rem;
-}
-#reviewCards{
-  grid-row: 2;
-  height: 100%; width: 100%;
-  display: flex;
-  flex-flow: column;
-  justify-content: flex-start;
-  gap: 20px;
-}
-#reviewCard{
-  display: flex;
-  align-items: center;
-  border: 1px var(--verde) solid; border-radius: 10px;
-  padding: 20px;
-}
-#reviewCard:hover{
-  transform: translateY(-1px);
-  box-shadow: 0px 0px 7px var(--verde);
-  transition: ease 300ms;
-}
-#reviewCard>img{
-  align-self: flex-start;
-  height: 150px;
-  margin-right: 20px;
-  border-radius: 10px;
-}
-#reviewCard>div{
-  height: 100%;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  gap: 5px;
-}
-#reviewCard>div>h2{
-  font-size: 1rem;
-}
-#reviewCard>div>p{
-  font-size: 1rem;
-}
-@media only screen and (max-width: 1280px) {
-  #about{
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: 100%;
-    background-color: var(--beje);
-  }
-  #form{
-    grid-row: 1;
-    grid-column: 1;
-    border-radius: 0;
-  }
-  #lateral{
-    grid-row: 2;
-    grid-column: 1;
-  }
-}
-@media only screen and (max-width: 950px) {
-  #navbar-logo>h2{
-    display: none;
-  }
-}
-@media only screen and (max-width: 600px) {
-  #reviewCard{
-    flex-flow: column;
-    align-content: center;
-  }
-  #reviewCard>img{
-    align-self: center;
-    margin: 0 0 15px 0;
-  }
-  #reviewCard>div{
-    align-items: center;
-  }
-}
-/*#endregion about*/
 /*#region FOOTER*/
 .footer-distributed{
   grid-row: 3;
@@ -614,9 +223,51 @@ font-style: normal;
   text-decoration:underline;
 }
 #trademark{
-  grid-row: 2 / span 2;
+  grid-row: 2;
   grid-column: 1 / span 2;
 }
+#easterEgg{
+  grid-row: 3;
+  grid-column: span 2;
+  height: 0;
+  width: 100%;
+  
+}
+#easterEgg img{
+  width: 40px;
+  position: relative;
+  animation: easterEggAnim 40s infinite;
+}
+@keyframes easterEggAnim
+{
+  0% {
+    left: -10%;
+    transform: scaleX(1);
+  }
+  20%{
+    left: -10%;
+    transform: scaleX(1);
+  }
+  50%{
+    left: 110%;
+    transform: scaleX(1);
+  }
+  51%{
+    transform: scaleX(-1);
+  }
+  70%{
+    left: 110%;
+    transform: scaleX(-1);
+  }
+  100% {
+    left: -10%;
+    transform: scaleX(-1);
+  }
+}
+/* #easterEgg img:hover{
+  
+} */
+
 /*small screen*/
 @media only screen and (max-width: 500px) {
   .footer-distributed{
