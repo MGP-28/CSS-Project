@@ -132,22 +132,6 @@
   
   }
   @media only screen and (max-width: 500px) {
-    body{
-      grid-template-rows: 70px auto auto;
-    }
-    #navbar-logo{
-      padding: 5px 20px;
-    }
-    #navbar-logo>img{
-      height: 50px;
-    }
-    #navbar-links{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      padding-right: 40px;
-    }
     #heroBtn{
       justify-content: center; 
       padding: 0;

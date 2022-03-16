@@ -12,18 +12,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <script src="script.js"></script>
+    <script src="/js/main.js"></script>
 </head>
 <body>
     <header>
         <div id="navbar">
-            <div id="navbar-logo">
-                <img src="img/logo.png" alt="">
-                <h2 class="hide">Old McDonald's Farm</h2>
+            <div id="navbar-serious">
+                <div id="navbar-logo">
+                    <img src="img/logo.png" alt="">
+                    <h2 class="hide">Old McDonald's Farm</h2>
+                </div>
+                <div id="navbar-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                </div>
             </div>
-            <div id="navbar-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
+            <div id="easterEgg">
+                <img onclick="playAudio()" ondblclick="resetAudio()" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a0778e71805451.5ca68f846fdc7.gif" alt="">
+                <audio id="easterEggSong">
+                    <source src="audio/song.mp3" type="audio/mp3">
+                </audio>
             </div>
         </div>
     </header>
@@ -81,13 +89,6 @@
         </div>
         <div id="trademark">
             <p>João Pereira &copy; 2022</p>
-        </div>
-        <div id="easterEgg">
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/a0778e71805451.5ca68f846fdc7.gif" alt="">
-            <audio id="easterEggSong">
-                <source src="audio/beep.mp3" type="audio/mp3">
-                <source src="audio/beep.ogg" type="audio/ogg">
-            </audio>
         </div>
     </footer>
 </body>

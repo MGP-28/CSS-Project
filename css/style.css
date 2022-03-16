@@ -100,10 +100,18 @@ header{
   background-color: var(--verdeEscuro);
 }
 #navbar{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+}
+#navbar-serious{
+  grid-row: 1;
   display: flex;
   justify-content: space-between;
   align-content: center;
   height: 100%;
+  width: 100%;
 }
 #navbar-logo{
   padding: 5px 50px;
@@ -137,6 +145,55 @@ header{
 #navbar-links>a:hover{
   transform: translateY(1px);
   transition: all ease 300ms;
+}
+#easterEgg{
+  grid-row: 2;
+  justify-self: center;
+  height: 0;
+  width: 100%;
+  margin-top: -30px;
+}
+#easterEgg audio{
+  display: none;
+}
+#easterEgg img{
+  width: 40px;
+  position: relative;
+  animation: easterEggAnim 40s infinite;
+  animation-timing-function: linear;
+}
+@keyframes easterEggAnim
+{
+  0% {
+    left: 0%; transform: scaleX(1); opacity: 0%;
+  }
+  1% {
+    left: 3%; transform: scaleX(1); opacity: 100%;
+  }
+  25%{
+    left: 92%; transform: scaleX(1); opacity: 100%;
+  }
+  26%{
+    left: 95%; transform: scaleX(1); opacity: 0%;
+  }
+  50%{
+    left: 95%; transform: scaleX(-1); opacity: 0%;
+  }
+  51%{
+    left: 92%; transform: scaleX(-1); opacity: 100%;
+  }
+  75%{
+    left: 3%; transform: scaleX(-1); opacity: 100%;
+  }
+  76%{
+    left: 0%; transform: scaleX(-1); opacity: 0%;
+  }
+  100% {
+    left: 0%; transform: scaleX(1); opacity: 0%;
+  }
+}
+#easterEgg img:hover{
+  animation-play-state: paused;
 }
 /*#endregion HEADER*/
 #main{
@@ -226,55 +283,32 @@ header{
   grid-row: 2;
   grid-column: 1 / span 2;
 }
-#easterEgg{
-  grid-row: 3;
-  grid-column: span 2;
-  justify-self: center;
-  height: 0;
-  width: 100%;
-  margin: 0 -200px;
-}
-#easterEgg audio{
-  display: none;
-}
-#easterEgg img{
-  width: 40px;
-  position: relative;
-  animation: easterEggAnim 30s infinite;
-}
-@keyframes easterEggAnim
-{
-  0% {
-    left: -30%;
-    transform: scaleX(1);
-  }
-  20%{
-    left: -30%;
-    transform: scaleX(1);
-  }
-  50%{
-    left: 130%;
-    transform: scaleX(1);
-  }
-  51%{
-    left: 130%;
-    transform: scaleX(-1);
-  }
-  70%{
-    left: 130%;
-    transform: scaleX(-1);
-  }
-  100% {
-    left: -30%;
-    transform: scaleX(-1);
-  }
-}
-#easterEgg img:hover{
-  animation-play-state: paused;
-}
 
 /*small screen*/
+/*#endregion FOOTER*/
 @media only screen and (max-width: 500px) {
+  body{
+    grid-template-rows: 70px auto auto;
+  }
+  #navbar-logo{
+    padding: 5px 20px;
+  }
+  #navbar-logo>img{
+    height: 50px;
+  }
+  #navbar-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-right: 40px;
+  }
+  #easterEgg{
+    margin-top: -20px;
+  }
+  #easterEgg img{
+    width: 25px;
+  }
   .footer-distributed{
     justify-items: center;
     row-gap: 20px;
@@ -293,9 +327,4 @@ header{
     grid-row: 3;
     grid-column: 1 / span 2;
   }
-  .footer-distributed #easterEgg{
-    grid-row: 3;
-    grid-column: 1 / span 2;
-  }
 }
-/*#endregion FOOTER*/
